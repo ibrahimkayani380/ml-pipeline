@@ -3,7 +3,7 @@ pipeline {
   environment { IMAGE = 'ibrahimkayani123/ml-app' }
   stages {
     stage('Build and Train') {
-      steps { sh 'docker build -t $IMAGE:latest .' }
+      steps { sh 'docker build --build-arg GIT_SHA=$GIT_COMMIT -t $IMAGE:latest .' }
     }
     stage('Compare Accuracy') {
       steps {
