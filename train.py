@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score
 df = pd.read_csv("data/dataset.csv")
 X, y = df.drop(columns=["label"]), df["label"]
 Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.2, random_state=42)
-m = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42).fit(Xtr, ytr)
+m = RandomForestClassifier(n_estimators=100, max_depth=1, random_state=42).fit(Xtr, ytr)
 acc = accuracy_score(yte, m.predict(Xte))
 joblib.dump(m, "model.pkl")
 json.dump({"accuracy": round(acc, 4)}, open("metrics.json", "w"))
