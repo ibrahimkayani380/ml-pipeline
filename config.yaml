@@ -1,5 +1,5 @@
 student_id: FA23-BDS-062
 dataset: data/dataset.csv
 target: label
-n_estimators: 50
-max_depth: 5
+n_estimators: 1
+max_depth: 1
