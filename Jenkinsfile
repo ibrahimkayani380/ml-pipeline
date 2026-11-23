@@ -32,8 +32,8 @@ pipeline {
       script {
         try {
           def body = fileExists('result.txt') ? readFile('result.txt') : 'Build failed'
-          mail to: 'ibrahimkayani380@gmail.com',
-               subject: "ML Pipeline #${env.BUILD_NUMBER}: ${currentBuild.currentResult}",
+          mail from: 'ibrahimkayani380@gmail.com', to: 'qasimalik@gmail.com',
+               subject: "MIDTERM FA23-BDS-062 - Build #${env.BUILD_NUMBER}: ${currentBuild.currentResult}",
                body: body
         } catch (e) {
           echo "Email not sent: ${e}"
